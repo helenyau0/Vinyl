@@ -1,9 +1,6 @@
-const pg = require('pg')
+const pgp = require('pg-promise')()
 
-const dbName = 'vinyl'
-const connectionString = process.env.DATABASE_URL || `postgres://localhost:5432/${dbName}`
-const client = new pg.Client(connectionString)
+const connectionString = process.env.DATABASE_URL || `postgres://localhost:5432/vinyl`
+const db = pgp(connectionString)
 
-module.exports = {
-  client
-}
+module.exports = db

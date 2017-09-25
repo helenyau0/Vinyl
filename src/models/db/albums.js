@@ -1,26 +1,11 @@
-const { client } = require('./db')
+const db = require('./db')
 
-client.connect()
-
-function getAll(cb) {
-  _query('SELECT * FROM albums', [], cb)
+const getAll = () => {
+  return db.any('SELECT * FROM albums')
 }
 
-function getByID(albumID, cb) {
-  _query('SELECT * FROM albums WHERE id = $1', [albumID], cb)
-}
-
-function _query(sql, variables, cb) {
-  console.log('QUERY ->', sql.replace(/[\n\s]+/g, ' '), variables)
-
-  client.query(sql, variables, (error, result) => {
-    if (error) {
-      console.error(error)
-      cb(error)
-    } else {
-      cb(error, result.rows)
-    }
-  })
+const getByID = (albumID) => {
+  return db.oneOrNone('SELECT * FROM albums WHERE id = $1', [albumID])
 }
 
 module.exports = {

@@ -1,8 +1,9 @@
 const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
+const middleware = require('./controllers/middlewares')
 const session = require('cookie-session')
-// const { passport } = require('passport')
+const { passport } = require('./config/authentication')
 const routes = require('./controllers/routes')
 const flash = require('connect-flash')
 
@@ -16,9 +17,10 @@ app.set('views', path.join(__dirname, 'views'))
 
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended: false}))
+app.use(middleware.localVariables)
 app.use(session({secret: process.env.SECRET}))
-// app.use(passport.initialize())
-// app.use(passport.session())
+app.use(passport.initialize())
+app.use(passport.session())
 app.use(flash())
 
 app.use('/', routes)

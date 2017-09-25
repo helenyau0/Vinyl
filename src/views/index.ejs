@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Vinyl</title>
-  <link rel="stylesheet" type="text/css" href="/style.css">
-  <script type="text/javascript" src="/script.js"></script>
-</head>
-<body>
+<% include ./partials/header.ejs %>
 
-  <h1>Vinyl</h1>
-
+<% if (userSess) { %>
   <h2>Records</h2>
 
   <div class="album-list">
@@ -19,6 +11,4 @@
       </div>
     <% }) %>
   </div>
-
-</body>
-</html>
+<% } %>
