@@ -1,16 +1,12 @@
-const pg = require('pg')
-
-const dbName = 'vinyl'
-const connectionString = process.env.DATABASE_URL || `postgres://localhost:5432/${dbName}`
-const client = new pg.Client(connectionString)
+const { client } = require('./db')
 
 client.connect()
 
-function getAlbums(cb) {
+function getAll(cb) {
   _query('SELECT * FROM albums', [], cb)
 }
 
-function getAlbumsByID(albumID, cb) {
+function getByID(albumID, cb) {
   _query('SELECT * FROM albums WHERE id = $1', [albumID], cb)
 }
 
@@ -19,17 +15,15 @@ function _query(sql, variables, cb) {
 
   client.query(sql, variables, (error, result) => {
     if (error) {
-      console.log('QUERY -> !!ERROR!!')
       console.error(error)
       cb(error)
     } else {
-      console.log('QUERY ->', JSON.stringify(result.rows))
       cb(error, result.rows)
     }
   })
 }
 
 module.exports = {
-  getAlbums,
-  getAlbumsByID,
+  getAll,
+  getByID,
 }
