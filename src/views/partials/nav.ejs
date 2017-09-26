@@ -1,11 +1,16 @@
 <nav class="navbar navbar-inverse">
-  <h1><a href="/">Vinyl</a></h1>
-  <% if (userSess) { %>
-    <a class="first" href="/logout">Logout</a>
-  <% } else { %>
-    <div class="container">
-      <a class="first" href="/login">Login</a>
-      <a class="second" href="/users/signup">Sign Up</a>
+  <div class="container">
+    <div class="items">
+      <h1 class="vinyl"><a href="/">Vinyl</a></h1>
+      <div class="user-items">
+        <% if (userSess) { %>
+          <a class="first" href="/users/profile">Profile</a>
+          <a class="second" href="/logout">Logout</a>
+        <% } else { %>
+          <a class="first" href="/login">Login</a>
+          <a class="second" href="/users/signup">Sign Up</a>
+        <% } %>
+      </div>
     </div>
-  <% } %>
+  </div>
 </nav>

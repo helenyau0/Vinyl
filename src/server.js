@@ -27,7 +27,7 @@ app.use(middleware.localVariables)
 
 app.use('/', routes)
 
-app.use((error, req, res) => {
+app.use((error, req, res, next) => {
   res.status(500).render('error', {error})
 })
 

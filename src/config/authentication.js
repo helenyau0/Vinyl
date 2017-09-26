@@ -15,6 +15,7 @@ passport.use('login', new LocalStrategy({
     dbUsers.findByEmail(email)
     .then(foundUser => {
       if (bcrypt.compareSync(password, foundUser.password)) {
+          userId(foundUser)
          return done(null, foundUser)
       } else {
         return done(null, false, {message: "Invalid password, please enter in correct password"})
@@ -24,16 +25,6 @@ passport.use('login', new LocalStrategy({
     })
   })
 )
-
-passport.serializeUser((user, done) => {
-  done(null, user.id)
-})
-
-passport.deserializeUser((id, done) => {
-  dbUsers.findById(id)
-  .then(user => done(null, user))
-})
-
 
 passport.use('signup', new LocalStrategy({
   usernameField : 'email',
@@ -50,11 +41,22 @@ passport.use('signup', new LocalStrategy({
       } else if(user === null) {
         const hash = encryptPassword(password)
         dbUsers.create(req.body, hash)
-        .then(user => done(null, user))
+        .then(user => {
+          return done(null, user)
+        })
       }
     })
   }
 }))
+
+passport.serializeUser((user, done) => {
+  done(null, user.id)
+})
+
+passport.deserializeUser((id, done) => {
+  dbUsers.findById(id)
+  .then(user => done(null, user))
+})
 
 module.exports =  {
   encryptPassword,
