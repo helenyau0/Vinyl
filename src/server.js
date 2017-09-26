@@ -1,40 +1,34 @@
 const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
-const db = require('./db')
+const middleware = require('./controllers/middlewares')
+const session = require('cookie-session')
+const { passport } = require('./config/authentication')
+const routes = require('./controllers/routes')
+const flash = require('connect-flash')
 
 const port = process.env.PORT || 3000
 
 const app = express()
 
-require('ejs')
+require('dotenv').load()
+
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
 app.use(express.static('public'))
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(session({secret: process.env.SECRET}))
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(flash())
+app.use(middleware.localVariables)
 
-app.get('/', (req, res) => {
-  db.getAlbums((error, albums) => {
-    if (error) {
-      res.status(500).render('error', {error})
-    } else {
-      res.render('index', {albums})
-    }
-  })
-})
+app.use('/', routes)
 
-app.get('/albums/:albumID', (req, res) => {
-  const albumID = req.params.albumID
-
-  db.getAlbumsByID(albumID, (error, albums) => {
-    if (error) {
-      res.status(500).render('error', {error})
-    } else {
-      const album = albums[0]
-      res.render('album', {album})
-    }
-  })
+app.use((error, req, res, next) => {
+  res.status(500).render('error', {error})
 })
 
 app.use((req, res) => {
