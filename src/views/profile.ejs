@@ -1,2 +1,17 @@
 <% include ./partials/header.ejs %>
-<h1>hellooo</h1>
+<% if(userSess) {%>
+  <div class="container">
+    <div class="user-profile">
+      <p><%=user.name %></p>
+      <p><%=user.email %></p>
+      <p><%=user.created_at.toString().slice(0, 15) %></p>
+    </div>
+    <div class="user-reviews">
+      <% user_reviews.forEach(function(reviews) {%>
+        <p><%=reviews.title%></p>
+        <p><%=reviews.body%></p>
+        <button class="glyphicon glyphicon-trash delete buttons" value="<%= JSON.stringify(reviews) %>" aria-hidden="true"></button>
+        <%})%>
+      </div>
+    </div>
+<%}%>

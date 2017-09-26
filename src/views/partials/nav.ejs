@@ -4,7 +4,7 @@
       <h1 class="vinyl"><a href="/">Vinyl</a></h1>
       <div class="user-items">
         <% if (userSess) { %>
-          <a class="first" href="/users/profile">Profile</a>
+          <a class="first" href="/users/<%=userSess.id%>">Profile</a>
           <a class="second" href="/logout">Logout</a>
         <% } else { %>
           <a class="first" href="/login">Login</a>
