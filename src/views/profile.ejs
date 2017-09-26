@@ -2,6 +2,7 @@
 <% if(userSess) {%>
   <div class="container">
     <div class="user-profile">
+      <img src="<%= user.image%>" alt="" style="width:200px; height:200px;">
       <p><%=user.name %></p>
       <p><%=user.email %></p>
       <p><%=user.created_at.toString().slice(0, 15) %></p>
@@ -12,8 +13,10 @@
           <p><%=reviews.title%></p>
           <p><%=reviews.body%></p>
         </div>
-        <button class="glyphicon glyphicon-trash delete buttons" value="<%= JSON.stringify(reviews) %>" aria-hidden="true"></button>
-        <%})%>
-      </div>
+        <% if(userSess.id == reviews.user_id) {%>
+          <button class="glyphicon glyphicon-trash delete buttons" value="<%= JSON.stringify(reviews) %>" aria-hidden="true"></button>
+        <%}%>
+      <%})%>
     </div>
-<%}%>
+  <%}%>
+</div>
