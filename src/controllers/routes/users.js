@@ -24,7 +24,6 @@ router.get('/:id', (req, res) => {
   .then(user => {
     reviews.findByUserId(id)
     .then(user_reviews => {
-      console.log('reviews', user_reviews);
       res.render('profile', {user, user_reviews})
     })
   })
