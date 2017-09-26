@@ -7,7 +7,10 @@ const encryptPassword = (password) => {
   return bcrypt.hashSync(password, 10)
 }
 
-passport.use(new LocalStrategy(
+passport.use(new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password'
+  },
   (email, password, done) => {
     dbUsers.findByEmail(email)
     .then(foundUser => {

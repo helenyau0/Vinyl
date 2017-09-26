@@ -8,6 +8,7 @@ const authorized = (req, res, next) => {
 
 const localVariables = (req, res, next) => {
   res.locals.userSess = req.user
+  res.locals.error = null
   next()
 }
 

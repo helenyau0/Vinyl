@@ -1,9 +1,11 @@
 <nav class="navbar navbar-inverse">
   <h1><a href="/">Vinyl</a></h1>
   <% if (userSess) { %>
-    <a href="/logout">Logout</a>
+    <a class="first" href="/logout">Logout</a>
   <% } else { %>
-    <a class="right" href="/login">Login</a>
-    <a class="right" href="/users/signup">Sign Up</a>
+    <div class="container">
+      <a class="first" href="/login">Login</a>
+      <a class="second" href="/users/signup">Sign Up</a>
+    </div>
   <% } %>
 </nav>

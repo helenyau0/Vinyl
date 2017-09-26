@@ -1,5 +1,9 @@
 <% include ./partials/header.ejs %>
 
+<h1>Sign Up</h1>
+
+<%= error %>
+
 <form action="/users/signup" method="post">
   <input type="text" name="name" placeholder="name" required>
   <input type="email" name="email" placeholder="email" required>

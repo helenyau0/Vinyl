@@ -2,6 +2,7 @@ const router = require('express').Router()
 const { passport } = require('../../config/authentication')
 
 router.get('/login', (req, res) => {
+
   res.render('login', {error: req.flash('error')})
 })
 
@@ -15,7 +16,7 @@ router.post('/login',
 
 router.get('/logout', (req, res) => {
   req.logout()
-  res.redirect('/')
+  res.redirect('/login')
 })
 
 module.exports = router

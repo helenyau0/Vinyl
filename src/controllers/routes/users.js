@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const { encryptPassword } = require('../../config/authentication.js')
-const users = require('../../models/users.js')
+const Users = require('../../models/users.js')
 
 router.get('/signup', (req, res) => {
   res.render('signup')
@@ -10,14 +10,14 @@ router.post('/signup', (req, res, next) => {
   const { email, password, confirm } = req.body
   const hash = encryptPassword(password)
   if (password !== confirm) {
-    res.render('signup', {error: "Password does not match!"})
+    res.render('signup', {error: "Password does not match, try again!"})
   } else {
-    users.findByEmail(email)
+    Users.findByEmail(email)
     .then(user => {
       if(user) {
-        res.render('signup', {error: "Email Taken!"})
+        res.render('signup', {error: "This email is already taken"})
       } else if(user === null) {
-        users.create(req.body, hash)
+        Users.create(req.body, hash)
         res.redirect('/')
       }
     })
