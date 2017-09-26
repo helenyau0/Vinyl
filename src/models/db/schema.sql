@@ -22,6 +22,6 @@ CREATE TABLE reviews (
   title VARCHAR(200),
   body TEXT,
   created_at TIMESTAMP DEFAULT current_timestamp,
-  users_id INT REFERENCES users(id),
-  albums_id INT REFERENCES albums(id)
+  user_id INT REFERENCES users(id) ON DELETE CASCADE,
+  album_id INT REFERENCES albums(id) ON DELETE CASCADE
 );
