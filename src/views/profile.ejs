@@ -8,8 +8,10 @@
     </div>
     <div class="user-reviews">
       <% user_reviews.forEach(function(reviews) {%>
-        <p><%=reviews.title%></p>
-        <p><%=reviews.body%></p>
+        <div class="all-reviews">
+          <p><%=reviews.title%></p>
+          <p><%=reviews.body%></p>
+        </div>
         <button class="glyphicon glyphicon-trash delete buttons" value="<%= JSON.stringify(reviews) %>" aria-hidden="true"></button>
         <%})%>
       </div>
