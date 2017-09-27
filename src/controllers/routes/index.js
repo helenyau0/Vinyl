@@ -2,6 +2,7 @@ const router = require('express').Router()
 const albums = require('./albums.js')
 const auth = require('./authentication')
 const users = require('./users.js')
+const reviews = require('./reviews.js')
 const db = require('../../models/albums.js')
 
 router.get('/', (req, res) => {
@@ -14,6 +15,7 @@ router.get('/', (req, res) => {
 
 router.use('/albums', albums)
 router.use('/users', users)
+router.use('/reviews', reviews)
 router.use('/', auth)
 
 module.exports = router

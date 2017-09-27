@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const { encryptPassword, passport, userId } = require('../../config/authentication.js')
-const Users = require('../../models/users.js')
+const users = require('../../models/users.js')
+const reviews = require('../../models/reviews.js')
 
 router.get('/signup', (req, res) => {
   if(!req.user) {
@@ -11,7 +12,7 @@ router.get('/signup', (req, res) => {
 })
 
 router.post('/signup', passport.authenticate('signup', {
-    successRedirect: `/users/signup`,
+    successRedirect: '/users/signup',
     failureRedirect: '/users/signup',
     failureFlash : true
   })
@@ -19,8 +20,13 @@ router.post('/signup', passport.authenticate('signup', {
 
 router.get('/:id', (req, res) => {
   const id = req.params.id
-  console.log('id', id);
-  res.render('profile')
+  users.findById(id)
+  .then(user => {
+    reviews.findByUserId(id)
+    .then(user_reviews => {
+      res.render('profile', {user, user_reviews})
+    })
+  })
 })
 
 
