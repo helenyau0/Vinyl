@@ -3,12 +3,16 @@ const albums = require('./albums.js')
 const auth = require('./authentication')
 const users = require('./users.js')
 const reviews = require('./reviews.js')
-const db = require('../../models/albums.js')
+const dbAlbums = require('../../models/db/albums.js')
+const dbReviews = require('../../models/db/reviews.js')
 
-router.get('/', (req, res) => {
-  db.getAll()
+router.get('/', (req, res, next) => {
+  dbAlbums.getAll()
   .then(albums => {
-    res.render('index', {albums})
+    dbReviews.getRecent()
+    .then(reviews => {
+      res.render('index', {albums, reviews})
+    })
   })
   .catch(err => next(err))
 })

@@ -1,7 +1,7 @@
 const db = require('./db')
 
 const create = (user, hash) => {
-  return db.one('INSERT INTO users (name, email, password, image) VALUES($1, $2, $3, $4) RETURNING *', [user.name, user.email, hash, '/images/user_profile_female.jpg'])
+  return db.one('INSERT INTO users (name, email, password, image) VALUES($1, $2, $3, $4) RETURNING *', [user.name, user.email, hash, '/images/default_photo.png'])
 }
 
 const findByEmail = (email) => {

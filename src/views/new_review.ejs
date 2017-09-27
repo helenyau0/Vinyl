@@ -1,0 +1,26 @@
+<% include ./partials/header.ejs%>
+<% if (userSess) { %>
+  <div class="col-md-offset-3">
+    <h1>New Review for: <%= album.title %></h1>
+    <form action="/albums/<%=album.id%>/reviews/new" method="post">
+      <input type="hidden" name="userID" value="<%=userSess.id%>" class="form-control"/>
+      <div class="row">
+        <label class="col-md-1 control-label">Title:</label>
+        <div class="col-md-5">
+          <input type="text" name="title" class="form-control"/>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <label class="col-md-1 control-label">Review:</label>
+        <div class="col-md-5">
+          <textarea class="form-control" name="review" rows="8" required></textarea>
+        </div>
+      </div>
+      <br />
+      <div class="col-md-offset-4 col-md-3">
+        <input class="btn btn-primary" type="submit" value="Submit">
+      </div>
+    </form>
+  </div>
+<% } %>

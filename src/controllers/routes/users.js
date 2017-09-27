@@ -18,7 +18,7 @@ router.post('/signup', passport.authenticate('signup', {
   })
 )
 
-router.get('/:id', (req, res) => {
+router.get('/:id', (req, res, next) => {
   const id = req.params.id
   users.findById(id)
   .then(user => {
@@ -26,7 +26,9 @@ router.get('/:id', (req, res) => {
     .then(user_reviews => {
       res.render('profile', {user, user_reviews})
     })
+    .catch(err => next(err))
   })
+  .catch(err => next(err))
 })
 
 
