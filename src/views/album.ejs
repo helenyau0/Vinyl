@@ -4,18 +4,44 @@
     <title>Vinyl : <%= album.title %></title>
   </head>
   <body>
-    <h1><%= album.title %></h1>
-    <em>by <%= album.artist %></em>
-    <button type="button"><a href="/albums/<%=album.id%>/reviews/new">Add Review</a></button>
-    <h2>Reviews</h2>
-    <% album_reviews.forEach(function(reviews) {%>
-      <p><%=reviews.title%></p>
-      <p><%=reviews.body%></p>
-      <p><%=reviews.created_at%></p>
-      <p>by: <a href="/users/<%=reviews.user_id%>"><%=name%></a></p>
-      <% if(userSess.id == reviews.user_id) {%>
-        <button class="glyphicon glyphicon-trash delete buttons" value="<%= JSON.stringify(reviews) %>" aria-hidden="true"></button>
-      <%}%>
-    <%})%>
+    <div class="col-md-offset-3">
+      <div class="row">
+        <h1><%= album.title %></h1> <i>by <%=album.artist%></i>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <h2>Review</h2>
+        </div>
+        <div class="col-md-offset-2 col-md-1 add-review">
+          <a class="btn btn-primary" href="/albums/<%=album.id%>/reviews/new">Add Review</a>
+        </div>
+      </div>
+      <% album_reviews.forEach(function(review) {%>
+        <div class="row">
+          <div class="col-md-6">
+            <h4><%= review.title %></h4>
+          </div>
+          <div class="col-md-6">
+            <p><i><%=review.created_at.toString().slice(0, 15)%></i></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <p><%=review.body%></p>
+          </div>
+          <% if(userSess.id == review.user_id) {%>
+            <div class="col-md-6">
+              <button class="btn btn-primary glyphicon glyphicon-trash delete buttons" value="<%= JSON.stringify(review) %>" aria-hidden="true"></button>
+            </div>
+          <%}%>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <p>by <a href="/users/<%=review.user_id%>"><%=review.name%></a> </p>
+          </div>
+        </div>
+      </br>
+      <%})%>
+    </div>
   </body>
 <% } %>

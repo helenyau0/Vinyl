@@ -1,24 +1,40 @@
 <% include ./partials/header.ejs %>
 <% if(userSess) {%>
-  <div class="container">
-    <div class="user-profile">
+  <div class="row">
+    <div class="col-md-offset-2 col-md-3">
       <img src="<%= user.image%>" alt="" style="width:200px; height:200px;">
-      <p><%=user.name %></p>
-      <p><%=user.email %></p>
-      <p><%=user.created_at.toString().slice(0, 15) %></p>
     </div>
-    <div class="user-reviews">
-      <h1>Reviews</h1>
-      <% user_reviews.forEach(function(reviews) {%>
-        <div class="all-reviews">
-          <p><%=reviews.title%></p>
-          <p><%=reviews.body%></p>
-          <p><%=reviews.created_at%></p>
-        </div>
-        <% if(userSess.id == reviews.user_id) {%>
-          <button class="glyphicon glyphicon-trash delete buttons" value="<%= JSON.stringify(reviews) %>" aria-hidden="true"></button>
-        <%}%>
-      <%})%>
+    <div class="col-md-6">
+      <div class="row">
+        <h1><%=user.name %></h1>
+        <p><i>Email:</i> <%=user.email %></p>
+        <p><i>Date Joined:</i> <%=user.created_at.toString().slice(0, 15) %></p>
+      </div>
+      <div class="row">
+        <h1>Reviews</h1>
+        <% user_reviews.forEach(function(reviews) {%>
+          <div class="row each-review">
+            <div class="row">
+              <div class="col-md-6">
+                <h4><a href="/albums/<%=reviews.album_id %>"><%= reviews.title %></a></h4>
+              </div>
+              <div class="col-md-6">
+                <p><i><%=reviews.created_at.toString().slice(0, 15)%></i></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <p><%=reviews.body%></p>
+              </div>
+              <% if(userSess.id == reviews.user_id) {%>
+                <div class="col-md-4">
+                  <button class="btn btn-primary glyphicon glyphicon-trash delete buttons" value="<%= JSON.stringify(reviews) %>" aria-hidden="true"></button>
+                </div>
+              <%}%>
+            </div>
+          </div>
+        <%})%>
+      </div>
     </div>
-  <%}%>
-</div>
+  </div>
+<%}%>

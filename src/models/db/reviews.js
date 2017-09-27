@@ -1,15 +1,15 @@
 const db = require('./db')
 
 const findByUserId = (id) => {
-  return db.any('SELECT * FROM reviews WHERE user_id=$1 ORDER BY created_at DESC;', [id])
+  return db.any('SELECT * FROM reviews WHERE user_id =$1 ORDER BY created_at DESC;', [id])
 }
 
 const findByAlbumId = (id) => {
-  return db.any('SELECT * FROM reviews WHERE album_id=$1 ORDER BY created_at DESC;', [id])
+  return db.any('SELECT reviews.title, reviews.body, users.name, reviews.user_id, reviews.created_at FROM reviews JOIN users ON users.id= user_id WHERE album_id=$1 ORDER BY reviews.created_at DESC;', [id])
 }
 
-const getAll = () => {
-  return db.any('SELECT * FROM reviews ORDER BY created_at DESC LIMIT 3')
+const getRecent = () => {
+  return db.any('SELECT albums.title, reviews.body, users.name, reviews.created_at, reviews.user_id, reviews.album_id FROM reviews JOIN users ON users.id= user_id JOIN albums ON albums.id = album_id ORDER BY reviews.created_at DESC LIMIT 3;')
 }
 
 const remove = (id) => {
@@ -25,5 +25,5 @@ module.exports = {
   remove,
   findByAlbumId,
   create,
-  getAll
+  getRecent
 }

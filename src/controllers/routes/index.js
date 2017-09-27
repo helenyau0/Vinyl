@@ -6,17 +6,11 @@ const reviews = require('./reviews.js')
 const dbAlbums = require('../../models/db/albums.js')
 const dbReviews = require('../../models/db/reviews.js')
 
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
   dbAlbums.getAll()
   .then(albums => {
-    dbReviews.getAll()
-    .then(allReviews => {
-      let reviews = allReviews.map(review => {
-        let albumTitle = albums.find(album => {
-          return album.id == review.album_id
-        }).title
-        return Object.assign({}, {'albumTitle': albumTitle}, review)
-      })
+    dbReviews.getRecent()
+    .then(reviews => {
       res.render('index', {albums, reviews})
     })
   })

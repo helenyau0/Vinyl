@@ -1,21 +1,35 @@
 <% include ./partials/header.ejs %>
+<div class="row main-image">
+  <img src="/images/vinyl.png" class=" home-img">
+</div>
 
-<% if (userSess) { %>
-  <h2>Records</h2>
-  <div class="album-list">
-    <% albums.forEach(function(album) { %>
-      <div>
-        <h5><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
-        <span><%= album.artist %></span>
-      </div>
-    <% }) %>
+<div class="row">
+  <div class="col-md-3 col-md-offset-2">
+    <h2>Records</h2>
+    <div class="album-list">
+      <% albums.forEach(function(album) { %>
+        <div>
+          <h5 class="album-title"><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
+          <span>by <%= album.artist %></span>
+        </div>
+      <% }) %>
+    </div>
   </div>
-
-  <h2>Recent Reviews</h2>
-  <%reviews.forEach(function(review) {%>
-    <p><a href="/albums/<%= review.album_id %>"><%=review.albumTitle%></a></p>
-    <p><%=review.title%></p>
-    <p><%=review.body%></p>
-    <p><%=review.created_at%></p>
-  <%})%>
-<% } %>
+  <div class="col-md-5">
+    <h2>Recent Reviews</h2>
+    <%reviews.forEach(function(review) {%>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="album-title"><a href="/albums/<%= review.album_id %>"><%=review.title%></a></p>
+        </div>
+        <div class="col-md-offset-2 col-md-3">
+          <p><%=review.created_at.toString().slice(0, 15)%></p>
+        </div>
+      </div>
+      <p class="review-body"><%=review.body%></p>
+      <div class="col-md-offset-8 col-md-5">
+        <p class="author">by <a href="/users/<%=review.user_id%>"><%=review.name%></a></p>
+      </div>
+    <%})%>
+  </div>
+</div>

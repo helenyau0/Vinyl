@@ -1,11 +1,18 @@
 <% include ./partials/header.ejs %>
 
-<h1>Sign In</h1>
 
 <%= error %>
-
-<form action="/login" method="post">
-  <input type="email" name="email" placeholder="email">
-  <input type="password" name="password" placeholder="password">
-  <input type="submit" value="Login">
-</form>
+<div class="col-md-offset-3">
+  <div class="row">
+    <div class="col-md-offset-3">
+      <h1>Sign In</h1>
+    </div>
+    <div class="col-md-offset-3">
+      <form action="/login" method="post">
+        <input class="user-register-info" type="email" name="email" placeholder="email"></br>
+        <input class="user-register-info" type="password" name="password" placeholder="password"></br>
+        <input class="btn btn-primary" type="submit" value="Login"></br>
+      </form>
+    </div>
+  </div>
+</div>

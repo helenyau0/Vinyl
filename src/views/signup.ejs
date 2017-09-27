@@ -1,13 +1,20 @@
 <% include ./partials/header.ejs %>
 
-<h1>Sign Up For Vinyl</h1>
 
 <%= error %>
-
-<form action="/users/signup" method="post">
-  <input type="text" name="name" placeholder="name" required>
-  <input type="email" name="email" placeholder="email" required>
-  <input type="password" name="password" placeholder="password" required>
-  <input type="password" name="confirm" placeholder="confirm password" required>
-  <input type="submit" value="signup">
-</form>
+<div class="col-md-offset-3">
+  <div class="row">
+    <div class="col-md-offset-2">
+      <h1>Sign Up For Vinyl</h1>
+    </div>
+    <div class="col-md-offset-3">
+      <form action="/users/signup" method="post">
+        <input class="user-register-info" type="text" name="name" placeholder="name" required></br>
+        <input class="user-register-info" type="email" name="email" placeholder="email" required></br>
+        <input class="user-register-info" type="password" name="password" placeholder="password" required></br>
+        <input class="user-register-info" type="password" name="confirm" placeholder="confirm password" required></br>
+        <input class="btn btn-primary" type="submit" value="signup"></br>
+      </form>
+    </div>
+  </div>
+</div>
