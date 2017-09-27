@@ -2,7 +2,6 @@
 
 <% if (userSess) { %>
   <h2>Records</h2>
-
   <div class="album-list">
     <% albums.forEach(function(album) { %>
       <div>
@@ -11,4 +10,12 @@
       </div>
     <% }) %>
   </div>
+
+  <h2>Recent Reviews</h2>
+  <%reviews.forEach(function(review) {%>
+    <p><a href="/albums/<%= review.album_id %>"><%=review.albumTitle%></a></p>
+    <p><%=review.title%></p>
+    <p><%=review.body%></p>
+    <p><%=review.created_at%></p>
+  <%})%>
 <% } %>

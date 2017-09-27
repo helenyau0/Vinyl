@@ -4,5 +4,6 @@ module.exports = {
   findByUserId: dbReviews.findByUserId,
   remove: dbReviews.remove,
   findByAlbumId: dbReviews.findByAlbumId,
-  create: dbReviews.create
+  create: dbReviews.create,
+  getAll: dbReviews.getAll
 }

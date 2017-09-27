@@ -8,10 +8,12 @@
       <p><%=user.created_at.toString().slice(0, 15) %></p>
     </div>
     <div class="user-reviews">
+      <h1>Reviews</h1>
       <% user_reviews.forEach(function(reviews) {%>
         <div class="all-reviews">
           <p><%=reviews.title%></p>
           <p><%=reviews.body%></p>
+          <p><%=reviews.created_at%></p>
         </div>
         <% if(userSess.id == reviews.user_id) {%>
           <button class="glyphicon glyphicon-trash delete buttons" value="<%= JSON.stringify(reviews) %>" aria-hidden="true"></button>

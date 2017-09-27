@@ -12,7 +12,7 @@
       <p><%=reviews.title%></p>
       <p><%=reviews.body%></p>
       <p><%=reviews.created_at%></p>
-      <p>by: <%=reviews.user_id%></p>
+      <p>by: <a href="/users/<%=reviews.user_id%>"><%=name%></a></p>
       <% if(userSess.id == reviews.user_id) {%>
         <button class="glyphicon glyphicon-trash delete buttons" value="<%= JSON.stringify(reviews) %>" aria-hidden="true"></button>
       <%}%>
