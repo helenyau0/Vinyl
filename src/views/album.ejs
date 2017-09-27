@@ -4,13 +4,18 @@
     <title>Vinyl : <%= album.title %></title>
   </head>
   <body>
-
     <h1><%= album.title %></h1>
     <em>by <%= album.artist %></em>
-
+    <button type="button"><a href="/albums/<%=album.id%>/reviews/new">Add Review</a></button>
     <h2>Reviews</h2>
-
-    <!-- TODO: implement album reviews -->
-
+    <% album_reviews.forEach(function(reviews) {%>
+      <p><%=reviews.title%></p>
+      <p><%=reviews.body%></p>
+      <p><%=reviews.created_at%></p>
+      <p>by: <%=reviews.user_id%></p>
+      <% if(userSess.id == reviews.user_id) {%>
+        <button class="glyphicon glyphicon-trash delete buttons" value="<%= JSON.stringify(reviews) %>" aria-hidden="true"></button>
+      <%}%>
+    <%})%>
   </body>
 <% } %>

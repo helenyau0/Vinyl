@@ -1,0 +1,16 @@
+<% include ./partials/header.ejs%>
+<% if (userSess) { %>
+  <h1>New Review for: <%= album.title %></h1>
+  <form action="/albums/<%=album.id%>/reviews/new" method="post">
+    <label class="col-sm-2 control-label">Title:</label>
+    <div class="col-sm-10">
+      <input type="text" name="title" class="form-control"/>
+    </div>
+    <label class="col-sm-2 control-label">Review:</label>
+    <div class="col-sm-10">
+      <textarea name="review" rows="8" cols="80" required></textarea>
+    </div>
+    <input type="hidden" name="userID" value="<%=userSess.id%>" class="form-control"/>
+    <input type="submit" value="Submit">
+  </form>
+<% } %>

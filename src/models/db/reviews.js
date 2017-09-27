@@ -12,8 +12,13 @@ const remove = (id) => {
   return db.one('DELETE FROM reviews WHERE id=$1 RETURNING *', [id])
 }
 
+const create = (id, body) => {
+  return db.one(`INSERT INTO reviews (title, body, user_id, album_id) VALUES ($1, $2, $3, $4) RETURNING *`, [body.title, body.review, body.userID, id])
+}
+
 module.exports = {
   findByUserId,
   remove,
-  findByAlbumId
+  findByAlbumId,
+  create
 }
