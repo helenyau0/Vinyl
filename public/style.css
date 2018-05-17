@@ -5,8 +5,13 @@ html, body {
   overflow-x: hidden;
 }
 
+.row {
+  margin: 0 auto;
+}
+
 .vinyl {
   margin-top: 10px;
+  transform: translateX(45%);
 }
 
 .user-info {
@@ -14,6 +19,7 @@ html, body {
   display: inline-flex;
   justify-content: space-between;
   padding: 10px;
+  transform: translateY(10%);
 }
 
 .second {
@@ -45,6 +51,10 @@ h2 {
   text-decoration: underline;
 }
 
+.recent-album-title {
+  margin-left: -13px;
+}
+
 .user-register-info {
   border-radius: 3px;
   margin-top: 5px;
@@ -58,6 +68,16 @@ h2 {
 
 nav.navbar {
   margin-bottom: 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .row {
+    padding: 0 auto;
+  }
+
+  .vinyl {
+    transform: translateX(13%);
+  }
 }
 
 

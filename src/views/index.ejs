@@ -20,7 +20,7 @@
     <%reviews.forEach(function(review) {%>
       <div class="row">
         <div class="col-md-6">
-          <p class="album-title"><a href="/albums/<%= review.album_id %>"><%=review.title%></a></p>
+          <p class="album-title recent-album-title"><a href="/albums/<%= review.album_id %>"><%=review.title%></a></p>
         </div>
         <div class="col-md-offset-2 col-md-3">
           <p><%=review.created_at.toString().slice(0, 15)%></p>
