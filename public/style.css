@@ -2,20 +2,24 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100vw;
+  overflow-x: hidden;
 }
 
-.user-items {
-  margin-top: 12px;
+.row {
+  margin: 0 auto;
 }
 
 .vinyl {
-  float: left;
   margin-top: 10px;
+  transform: translateX(45%);
 }
 
-.first {
+.user-info {
   font-size: 25px;
-  margin-right: 30px;
+  display: inline-flex;
+  justify-content: space-between;
+  padding: 10px;
+  transform: translateY(10%);
 }
 
 .second {
@@ -47,6 +51,10 @@ h2 {
   text-decoration: underline;
 }
 
+.recent-album-title {
+  margin-left: -13px;
+}
+
 .user-register-info {
   border-radius: 3px;
   margin-top: 5px;
@@ -61,3 +69,15 @@ h2 {
 nav.navbar {
   margin-bottom: 0;
 }
+
+@media only screen and (max-width: 900px) {
+  .row {
+    padding: 0 auto;
+  }
+
+  .vinyl {
+    transform: translateX(13%);
+  }
+}
+
+
