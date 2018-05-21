@@ -5,5 +5,7 @@ module.exports = {
   remove: dbReviews.remove,
   findByAlbumId: dbReviews.findByAlbumId,
   create: dbReviews.create,
-  getRecent: dbReviews.getRecent
+  getRecent: dbReviews.getRecent,
+  update: dbReviews.update,
+  findById: dbReviews.findById
 }
