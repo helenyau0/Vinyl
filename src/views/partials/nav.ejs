@@ -5,10 +5,12 @@
         <ul class="navbar-header pull-right">        
           <li class="user-info"><a href="/users/<%=userSess.id%>">Profile</a></li>
           <li class="user-info"><a href="/logout">Logout</a></li>
-        <% } else { %>
-          <li class="user-info"><a href="/users/signup">Sign Up</a></li>
-          <li class="user-info"><a href="/login">Sign In</a></li>
         </ul>
+        <% } else { %>
+          <ul class="navbar-header pull-right">
+            <li class="user-info"><a href="/users/signup">Sign Up</a></li>
+            <li class="user-info"><a href="/login">Sign In</a></li>
+          </ul>
       <% } %>
   </div>
 </nav>
