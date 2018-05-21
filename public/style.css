@@ -9,6 +9,10 @@ html, body {
   margin: 0 auto;
 }
 
+.album-heading {
+  padding-left: 10px;
+}
+
 .update-form {
   margin-top: 50px;
 }
