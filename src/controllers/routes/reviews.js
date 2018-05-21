@@ -10,4 +10,21 @@ router.delete('/delete/:id', (req, res, next) => {
   .catch(err => next(err))
 })
 
+router.get('/update/:id', (req, res, next) => {
+  const id = req.params.id
+  reviews.findById(id)
+  .then(review => {
+    res.render('update_review', { review })
+  })
+  .catch(err => next(err))
+})
+
+router.post('/update/:id', (req, res, next) => {
+  reviews.update(req.params.id, req.body)
+  .then(updated => {
+    res.redirect(`/users/${updated.user_id}`)
+  })
+  .catch(err => next(err))
+})
+
 module.exports = router
