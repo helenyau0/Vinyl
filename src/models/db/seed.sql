@@ -11,7 +11,7 @@ INSERT INTO
   users (name,email, password, image)
 VALUES
   ('Helen','pie@gmail.com', '$2a$10$nTpQGr/.Tb7FEoC4PJeS5uGCjzomw/3yz/fpKE.iyuF1OfZq1tj.W', '/images/default_photo.png'),
-  ('Luna','jello@gmail.com', '$2a$10$fJJlu.WhxMpW.zFeUhtO1uVGMvN334FNsRcmZOJ.5aZBJ.IippQ7O', '/images/default_photo.png')
+  ('Tanner','jello@gmail.com', '$2a$10$fJJlu.WhxMpW.zFeUhtO1uVGMvN334FNsRcmZOJ.5aZBJ.IippQ7O', '/images/default_photo.png')
 
 ;
 

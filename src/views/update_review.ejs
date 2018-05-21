@@ -1,0 +1,24 @@
+<% include ./partials/header.ejs%>
+<% if (userSess) { %>
+  <div class="update-form col-md-offset-4">
+      <form action="/reviews/update/<%=review.id%>" method="post">
+        <div class="row">
+          <label class="col-md-1">Title:</label>
+          <div class="col-md-5">
+            <input type="text" name="title" value="<%=review.title%>" class="form-control"/>
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <label class="col-md-1">Review:</label>
+          <div class="col-md-5">
+            <textarea class="form-control" name="review" required><%=review.body%></textarea>
+          </div>
+        </div>
+        <br />
+        <div class="col-md-offset-4 col-sm-3">
+          <input class="btn btn-primary submit" type="submit" value="Update">
+        </div>
+      </form>
+    </div>
+<% } %>
