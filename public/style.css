@@ -9,6 +9,14 @@ html, body {
   margin: 0 auto;
 }
 
+.update-form {
+  margin-top: 50px;
+}
+
+.buttons {
+  margin-bottom: 5px;
+}
+
 .vinyl {
   margin-top: 10px;
   transform: translateX(45%);

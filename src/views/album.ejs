@@ -29,9 +29,12 @@
           <div class="col-md-6">
             <p><%=review.body%></p>
           </div>
-          <% if(userSess.id == review.user_id) {%>
+          <% if(userSess.id === review.user_id) {%>
             <div class="col-md-6">
-              <button class="btn btn-primary glyphicon glyphicon-trash delete buttons" value="<%= JSON.stringify(review) %>" aria-hidden="true"></button>
+              <button class="btn btn-danger glyphicon glyphicon-trash delete buttons" value="<%= JSON.stringify(review) %>" aria-hidden="true"></button>
+            </div>
+            <div class="col-md-4">
+              <a href='/reviews/update/<%=review.id%>'><span class="btn btn-primary button glyphicon glyphicon-edit"></span></a>
             </div>
           <%}%>
         </div>
