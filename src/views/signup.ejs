@@ -5,15 +5,17 @@
 <div class="col-md-offset-3">
   <div class="row">
     <div class="col-md-offset-2">
-      <h1>Sign Up For Vinyl</h1>
+      <h1 class="sign-in-heading">Sign Up For Vinyl</h1>
     </div>
-    <div class="col-md-offset-3">
+    <div class="col-md-offset-2">
       <form action="/users/signup" method="post">
-        <input class="user-register-info" type="text" name="name" placeholder="name" required></br>
-        <input class="user-register-info" type="email" name="email" placeholder="email" required></br>
-        <input class="user-register-info" type="password" name="password" placeholder="password" required></br>
-        <input class="user-register-info" type="password" name="confirm" placeholder="confirm password" required></br>
-        <input class="btn btn-primary" type="submit" value="signup"></br>
+        <div class="col-xs-5">
+          <input class="form-control" type="text" name="name" placeholder="name" required></br>
+          <input class="form-control" type="email" name="email" placeholder="email" required></br>
+          <input class="form-control" type="password" name="password" placeholder="password" required></br>
+          <input class="form-control" type="password" name="confirm" placeholder="confirm password" required></br>
+          <input class="btn btn-primary" type="submit" value="signup"></br>
+        </div>
       </form>
     </div>
   </div>
