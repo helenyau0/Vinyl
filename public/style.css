@@ -9,8 +9,16 @@ html, body {
   margin: 0 auto;
 }
 
+a:hover, a:visited, a:link, a:active {
+  text-decoration: none;
+}
+
 .album-heading {
   padding-left: 10px;
+}
+
+.sign-in-heading {
+  margin-left: 15px;
 }
 
 .update-form {
@@ -24,6 +32,7 @@ html, body {
 .vinyl {
   margin-top: 10px;
   transform: translateX(45%);
+  text-decoration: none;
 }
 
 .user-info {
