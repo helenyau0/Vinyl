@@ -4,10 +4,6 @@ Build a web app where a community of record enthusiasts can review their favorit
 
 The client has provided basic wireframes and user stories.
 
-Some work has already been done for you in the [scaffold][scaffold]. Build off of the existing code and try to match the existing style in your solution.
-
-_Requirements checked off below have already been completed in the [scaffold][scaffold]._
-
 ## Wireframes
 
 Use these wireframes to guide your design.
@@ -215,6 +211,3 @@ Layout:
 - [X] __10:__ The site-wide header is visible on the new review page.
 - [X] __20:__ The layout of the new review page matches the wireframes.
 
----
-
-[scaffold]: https://drive.google.com/file/d/0B9iWVbGIe7lCQ2kzN2JTeWw3Mk0/view
