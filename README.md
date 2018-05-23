@@ -1,25 +1,3 @@
-# Phase 4 Challenge
-
-This is a coding challenge for entrance to Phase 4.
-
-To get started, create a new repository called `phase-4-challenge` and import the files from [the scaffold][scaffold]. Do all of your work in this repo.
-
-During your interview, you'll review your solution with the interviewer. You'll then build a new feature to enhance the application. Read the [Live Coding Exercise](#live-coding-exercise) section at the end of this document for more details.
-
-Skills covered:
-
-- JavaScript
-- HTML
-- CSS
-- HTTP
-- Node.js
-- Express
-- SQL
-- Server-side rendering
-- Authentication & authorization
-
-Each requirement is assigned a point value. A fully complete requirement will earn you full points; partially complete requirements get partial points; incomplete requirements get no points. Overall completeness is determined by dividing the total points earned by the total points available.
-
 ## Project Description
 
 Build a web app where a community of record enthusiasts can review their favorite albums. The app will be called **Vinyl**.
@@ -238,46 +216,5 @@ Layout:
 - [X] __20:__ The layout of the new review page matches the wireframes.
 
 ---
-
-## Live Coding Exercise
-
-During the interview, you'll have 20 minutes to work on a solution to a new challenge. This exercise will build on the solution you'll submit for the challenge above.
-
-This part of the interview is pass/fail and is evaluated on based on your ability to demonstrate your understanding of the concepts and tools involved in building the site. You'll be allowed to ask your interviewer clarifying questions and can use the internet to search for information as needed.
-
-Examples of features the interviewer might ask you to implement include:
-
-#### Profile Features
-
-Users can:
-
-- See a "default" profile photo on their profile page before adding their own photo.
-- Update their profile photo (e.g. via Uploadcare).
-- See user profile photos next to their reviews.
-- Receive a welcome email after creating an account.
-- Visit user profile pages via "pretty" URLs, like "/users/james-franco".
-
-#### Reviews
-
-Users can:
-
-- Visit album pages via "pretty" URLs, like "/albums/malibu".
-- Add a star rating to reviews (from 1-5) and see the star rating for each review of an album in star icons.
-- See review content truncated to 400 characters max on the home page, with a link to view more on the album page.
-- See a relative published date, e.g. "2 days ago" on an album page.
-- View only the 10 reviews at a time on an album page (pagination):
-  - View a link/button to the "Next" 10 reviews on an album page.
-  - View a link/button to the "Previous" 10 reviews on an album page.
-- Comment on individual reviews:
-  - See comment threads for a review.
-  - See the number of comments they've left on their public profile.
-  - Only add a comment when logged in.
-  - Only delete their own comments.
-
-#### Authentication & Authorization
-
-Users can:
-
-- View "pretty" error messages when form validations fail.
 
 [scaffold]: https://drive.google.com/file/d/0B9iWVbGIe7lCQ2kzN2JTeWw3Mk0/view
