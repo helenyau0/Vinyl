@@ -13,6 +13,7 @@
     "db:schema": "psql -d vinyl < src/models/db/schema.sql",
     "db:seed": "psql -d vinyl < src/models/db/seed.sql",
     "db:reset": "npm run db:drop && npm run db:create && npm run db:schema && npm run db:seed",
+    "heroku-postbuild": "npm install --production",
     "test": "./node_modules/.bin/eslint src"
   },
   "license": "MIT",
