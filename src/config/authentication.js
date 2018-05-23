@@ -17,10 +17,10 @@ passport.use('login', new LocalStrategy({
       if (bcrypt.compareSync(password, foundUser.password)) {
          return done(null, foundUser)
       } else {
-        return done(null, false, {message: "Invalid password, please enter in correct password"})
+        return done(null, false, {message: "Invalid password, please enter in correct password."})
       }
     }).catch(noUserFound => {
-      return done(null, false, {message: "Invalid email, please enter in correct email"})
+      return done(null, false, {message: "Invalid email, please enter correct email."})
     })
   })
 )
@@ -41,12 +41,12 @@ passport.use('signup', new LocalStrategy({
   passReqToCallback: true
 }, (req, email, password, done) => {
   if(password !== req.body.confirm) {
-    return done(null, false, { message: "Passwords do not match, try again"})
+    return done(null, false, { message: "Passwords do not match, try again."})
   } else {
     dbUsers.findByEmail(email)
     .then(user => {
       if(user) {
-        return done(null, false, { message: "This email is already taken" })
+        return done(null, false, { message: "This email is already taken." })
       } else if(user === null) {
         const hash = encryptPassword(password)
         dbUsers.create(req.body, hash)
