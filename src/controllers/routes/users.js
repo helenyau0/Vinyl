@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const { encryptPassword, passport, userId } = require('../../config/authentication.js')
+const middleware = require('../middlewares')
 const users = require('../../models/users.js')
 const reviews = require('../../models/reviews.js')
 
@@ -17,6 +18,8 @@ router.post('/signup', passport.authenticate('signup', {
     failureFlash : true
   })
 )
+
+router.use(middleware.authorized)
 
 router.get('/:id', (req, res, next) => {
   const id = req.params.id
