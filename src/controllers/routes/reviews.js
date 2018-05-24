@@ -1,11 +1,11 @@
 const router = require('express').Router()
 const reviews = require('../../models/reviews.js')
 
-router.delete('/delete/:id', (req, res, next) => {
+router.post('/delete/:id', (req, res, next) => {
   const id = req.params.id
   reviews.remove(id)
   .then(deleted => {
-    res.redirect(`/users/${deleted.user_id}`)
+    res.json({ message: 'Deleted' });
   })
   .catch(err => next(err))
 })
