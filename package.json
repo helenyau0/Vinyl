@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A community for record enthusiasts to review their favorite albums.",
   "engines": {
-    "node": "6.x"
+    "node": "8.6.0"
   },
   "scripts": {
     "start": "node src/server.js",
@@ -13,6 +13,7 @@
     "db:schema": "psql -d vinyl < src/models/db/schema.sql",
     "db:seed": "psql -d vinyl < src/models/db/seed.sql",
     "db:reset": "npm run db:drop && npm run db:create && npm run db:schema && npm run db:seed",
+    "heroku-postbuild": "npm install --production",
     "test": "./node_modules/.bin/eslint src"
   },
   "license": "MIT",
@@ -26,13 +27,13 @@
     "express": "^4.16.3",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "pg": "^6.2.4",
+    "pg": "^6.4.2",
     "pg-promise": "^6.10.3"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^11.3.2",
     "eslint-plugin-import": "^2.12.0",
-    "nodemon": "^1.17.4"
+    "nodemon": "^1.17.5"
   }
 }

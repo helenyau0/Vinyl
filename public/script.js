@@ -8,10 +8,9 @@ const deleteReview = (event) => {
   const review = JSON.parse(event.target.value)
   if (confirm('Are you sure you want to delete this review?')) {
     fetch(`/reviews/delete/${review.id}`, {
-      method: 'POST'
+      method: 'post'
     }).then(success => {
       event.target.parentNode.parentNode.parentNode.remove()
-      event.target.remove()
     }).catch(console.log)
   }
 }
